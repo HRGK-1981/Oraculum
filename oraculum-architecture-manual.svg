@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1976D2; }
+      .component { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+      .legend { font-family: Arial, sans-serif; font-size: 10px; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#F8F9FA" stroke="none"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" class="title">Oraculum - Student Career Guidance Platform</text>
+  
+  <!-- Client Layer -->
+  <rect x="50" y="60" width="200" height="80" fill="#E1F5FE" stroke="#1976D2" stroke-width="2" rx="5"/>
+  <text x="150" y="85" text-anchor="middle" class="component" fill="#0D47A1">Client Layer</text>
+  <rect x="60" y="95" width="180" height="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="1" rx="3"/>
+  <text x="150" y="115" text-anchor="middle" class="component" fill="#0D47A1">Web / Mobile Client</text>
+  <text x="150" y="125" text-anchor="middle" class="component" fill="#0D47A1">(React / Flutter)</text>
+  
+  <!-- API Gateway -->
+  <rect x="300" y="60" width="200" height="80" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2" rx="5"/>
+  <text x="400" y="85" text-anchor="middle" class="component" fill="#1B5E20">API Gateway</text>
+  <rect x="310" y="95" width="80" height="35" fill="#E8F5E8" stroke="#388E3C" stroke-width="1" rx="3"/>
+  <text x="350" y="115" text-anchor="middle" class="component" fill="#1B5E20">API Gateway</text>
+  <rect x="400" y="95" width="80" height="35" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="3"/>
+  <text x="440" y="115" text-anchor="middle" class="component" fill="#E65100">Auth Service</text>
+  
+  <!-- Core Services -->
+  <rect x="550" y="60" width="200" height="80" fill="#FFF3E0" stroke="#FF5722" stroke-width="2" rx="5"/>
+  <text x="650" y="85" text-anchor="middle" class="component" fill="#E65100">Core Services</text>
+  <rect x="560" y="95" width="85" height="35" fill="#E3F2FD" stroke="#1976D2" stroke-width="1" rx="3"/>
+  <text x="602" y="115" text-anchor="middle" class="component" fill="#0D47A1">Profile</text>
+  <rect x="655" y="95" width="85" height="35" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1" rx="3"/>
+  <text x="697" y="115" text-anchor="middle" class="component" fill="#4A148C">Recommend</text>
+  
+  <!-- AI/ML Services -->
+  <rect x="800" y="60" width="200" height="80" fill="#F3E5F5" stroke="#E91E63" stroke-width="2" rx="5"/>
+  <text x="900" y="85" text-anchor="middle" class="component" fill="#4A148C">AI/ML Services</text>
+  <rect x="810" y="95" width="85" height="35" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1" rx="3"/>
+  <text x="852" y="115" text-anchor="middle" class="component" fill="#4A148C">Gemini</text>
+  <rect x="905" y="95" width="85" height="35" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1" rx="3"/>
+  <text x="947" y="115" text-anchor="middle" class="component" fill="#4A148C">Vertex AI</text>
+  
+  <!-- Data Layer -->
+  <rect x="50" y="200" width="200" height="80" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2" rx="5"/>
+  <text x="150" y="225" text-anchor="middle" class="component" fill="#1B5E20">Data Layer</text>
+  <rect x="60" y="235" width="85" height="35" fill="#E8F5E8" stroke="#388E3C" stroke-width="1" rx="3"/>
+  <text x="102" y="255" text-anchor="middle" class="component" fill="#1B5E20">User DB</text>
+  <rect x="155" y="235" width="85" height="35" fill="#E8F5E8" stroke="#388E3C" stroke-width="1" rx="3"/>
+  <text x="197" y="255" text-anchor="middle" class="component" fill="#1B5E20">Storage</text>
+  
+  <!-- Infrastructure -->
+  <rect x="300" y="200" width="200" height="80" fill="#F1F8E9" stroke="#689F38" stroke-width="2" rx="5"/>
+  <text x="400" y="225" text-anchor="middle" class="component" fill="#1B5E20">Infrastructure</text>
+  <rect x="310" y="235" width="85" height="35" fill="#F1F8E9" stroke="#689F38" stroke-width="1" rx="3"/>
+  <text x="352" y="255" text-anchor="middle" class="component" fill="#1B5E20">Pub/Sub</text>
+  <rect x="405" y="235" width="85" height="35" fill="#F1F8E9" stroke="#689F38" stroke-width="1" rx="3"/>
+  <text x="447" y="255" text-anchor="middle" class="component" fill="#1B5E20">CI/CD</text>
+  
+  <!-- Student Actor -->
+  <circle cx="150" cy="400" r="30" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+  <text x="150" y="405" text-anchor="middle" class="component" fill="#E65100">Student</text>
+  
+  <!-- Arrows -->
+  <line x1="150" y1="430" x2="150" y2="200" class="arrow"/>
+  <line x1="250" y1="100" x2="300" y2="100" class="arrow"/>
+  <line x1="500" y1="100" x2="550" y2="100" class="arrow"/>
+  <line x1="750" y1="100" x2="800" y2="100" class="arrow"/>
+  
+  <!-- Legend -->
+  <rect x="50" y="500" width="300" height="250" fill="#F5F5F5" stroke="#CCCCCC" stroke-width="1" rx="5"/>
+  <text x="200" y="520" text-anchor="middle" class="component" fill="#333">Component Legend</text>
+  
+  <text x="70" y="545" class="legend" fill="#2196F3">Frontend</text>
+  <text x="150" y="545" class="legend" fill="#333">User interface (React/Flutter)</text>
+  
+  <text x="70" y="565" class="legend" fill="#4CAF50">API Gateway</text>
+  <text x="150" y="565" class="legend" fill="#333">Request routing &amp; auth</text>
+  
+  <text x="70" y="585" class="legend" fill="#FF9800">Auth Service</text>
+  <text x="150" y="585" class="legend" fill="#333">User authentication</text>
+  
+  <text x="70" y="605" class="legend" fill="#FF5722">Profile Service</text>
+  <text x="150" y="605" class="legend" fill="#333">User data management</text>
+  
+  <text x="70" y="625" class="legend" fill="#9C27B0">Recommendation</text>
+  <text x="150" y="625" class="legend" fill="#333">AI career suggestions</text>
+  
+  <text x="70" y="645" class="legend" fill="#607D8B">Interview Service</text>
+  <text x="150" y="645" class="legend" fill="#333">Mock interview with AI</text>
+  
+  <text x="70" y="665" class="legend" fill="#4CAF50">User DB</text>
+  <text x="150" y="665" class="legend" fill="#333">User data storage</text>
+  
+  <text x="70" y="685" class="legend" fill="#689F38">Pub/Sub</text>
+  <text x="150" y="685" class="legend" fill="#333">Event processing</text>
+  
+  <text x="70" y="705" class="legend" fill="#558B2F">CI/CD</text>
+  <text x="150" y="705" class="legend" fill="#333">Deployment pipeline</text>
+  
+  <text x="70" y="725" class="legend" fill="#E91E63">Gemini AI</text>
+  <text x="150" y="725" class="legend" fill="#333">Generative AI models</text>
+  
+</svg>

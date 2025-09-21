@@ -1,0 +1,125 @@
+﻿@startuml
+!theme plain
+skinparam componentStyle rectangle
+skinparam backgroundColor #F8F9FA
+skinparam component {
+    BackgroundColor #E3F2FD
+    BorderColor #1976D2
+    FontColor #0D47A1
+    FontSize 12
+    FontStyle bold
+}
+skinparam database {
+    BackgroundColor #E8F5E8
+    BorderColor #388E3C
+    FontColor #1B5E20
+    FontSize 12
+    FontStyle bold
+}
+skinparam actor {
+    BackgroundColor #FFF3E0
+    BorderColor #F57C00
+    FontColor #E65100
+    FontSize 14
+    FontStyle bold
+}
+skinparam rectangle {
+    BackgroundColor #F3E5F5
+    BorderColor #7B1FA2
+    FontColor #4A148C
+    FontSize 11
+    FontStyle bold
+}
+
+title <size:18><color:#1976D2><b>Oraculum - Student Career Guidance Platform</b></color></size>
+
+actor Student as student #FF9800
+
+package "Client Layer" #E1F5FE {
+    component "Web / Mobile Client\n(React / Flutter)" as Frontend #2196F3
+}
+
+package "API Gateway" #E8F5E8 {
+    component "API Gateway\n(Cloud Endpoints)" as APIGW #4CAF50
+    component "Auth Service\n(Firebase Auth)" as Auth #FF9800
+}
+
+package "Core Services" #FFF3E0 {
+    component "Profile Service\n(Cloud Functions)" as ProfileSvc #FF5722
+    component "Recommendation Service\n(Vertex AI ML)" as RecoSvc #9C27B0
+    component "Mock Interview Service\n(STT, TTS, Gemini)" as InterviewSvc #607D8B
+    component "Search & Embeddings\n(Vertex AI Search)" as SearchSvc #795548
+    component "Learning Integrations\n(Cloud Skills Boost)" as LearningSvc #3F51B5
+}
+
+package "AI/ML Services" #F3E5F5 {
+    component "Gemini / Gemma\n(Generative AI)" as Gemini #E91E63
+    component "Vertex AI\n(Training & Deploy)" as Vertex #673AB7
+}
+
+package "Data Layer" #E8F5E8 {
+    database "User Database\n(Firestore)" as UserDB #4CAF50
+    database "Blob Storage\n(Cloud Storage)" as Blob #8BC34A
+    database "Logs & Metrics\n(Cloud Monitoring)" as Monitoring #CDDC39
+}
+
+package "Infrastructure" #F1F8E9 {
+    component "Pub/Sub / Tasks\n(Async Processing)" as PubSub #689F38
+    component "Cloud Build\n(CI/CD Pipeline)" as CICD #558B2F
+    component "3rd Party APIs\n(Course APIs, Job Boards)" as External #827717
+}
+
+' User interactions
+student --> Frontend : "Uses app\n(profile, interview, roadmap)"
+Frontend --> Auth : "Sign-in / tokens"
+Frontend --> APIGW : "REST/GraphQL calls\n(Bearer token)"
+
+' API Gateway routing
+APIGW --> ProfileSvc : "Get/Update profile"
+APIGW --> RecoSvc : "Request recommendations"
+APIGW --> InterviewSvc : "Start mock interview"
+APIGW --> SearchSvc : "Search resources"
+
+' Service interactions
+ProfileSvc --> UserDB : "Read/Write profiles"
+InterviewSvc --> Blob : "Store audio recordings"
+InterviewSvc --> Gemini : "Get AI feedback"
+InterviewSvc --> Vertex : "Scoring models"
+RecoSvc --> Vertex : "Run ML models"
+RecoSvc --> SearchSvc : "Retrieve matches"
+SearchSvc --> UserDB : "Personalized data"
+LearningSvc --> External : "Fetch course data"
+
+' Event-driven architecture
+ProfileSvc --> PubSub : "Profile events"
+PubSub --> RecoSvc : "Trigger retrain"
+CICD --> ProfileSvc : "Deploy backend"
+CICD --> Frontend : "Deploy frontend"
+Monitoring --> UserDB : "Store metrics"
+
+' Security boundary - Fixed syntax
+rectangle "Security & Compliance" #FFEBEE {
+    note "Secure components:\n Authentication\n API Gateway\n Data Storage\n User Database"
+}
+
+legend right
+|= Component |= Purpose |
+| <color:#2196F3>Frontend</color> | User interface (React/Flutter) |
+| <color:#4CAF50>API Gateway</color> | Request routing & auth |
+| <color:#FF9800>Auth Service</color> | User authentication |
+| <color:#FF5722>Profile Service</color> | User data management |
+| <color:#9C27B0>Recommendation</color> | AI career suggestions |
+| <color:#607D8B>Interview Service</color> | Mock interview with AI |
+| <color:#795548>Search Service</color> | Content discovery |
+| <color:#3F51B5>Learning Service</color> | Course integrations |
+| <color:#E91E63>Gemini AI</color> | Generative AI models |
+| <color:#673AB7>Vertex AI</color> | ML training & deployment |
+| <color:#4CAF50>User DB</color> | User data storage |
+| <color:#8BC34A>Blob Storage</color> | File storage |
+| <color:#CDDC39>Monitoring</color> | Logs & metrics |
+| <color:#689F38>Pub/Sub</color> | Event processing |
+| <color:#558B2F>CI/CD</color> | Deployment pipeline |
+| <color:#827717>External APIs</color> | Third-party integrations |
+endlegend
+
+@enduml
